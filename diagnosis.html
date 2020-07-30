@@ -50,17 +50,17 @@
                     <h6><i>* Provide the image data.</i></h6>
                     <hr/>
                     
-                    <form  onclick="diagnosis()">
-                        <div class="form-row">
+                   
+                    <div class="form-row">
                           <div class="form-group col-md-4" v-for="label in breastCancerLabels">
-                            <input type="text" class="form-control" v-bind:name="label" v-bind:id="label" v-bind:placeholder="label">
+                            <input type="text" class="form-control" v-bind:name="label" v-bind:id="label" v-bind:placeholder="label" value="1">
                           </div>
                          </div>
 
                            
-                        <button class="btn btn-primary btn-block"> LUNA Prediction </button>
-
-                    </form>
+                        <button class="btn btn-primary btn-block" v-on:click="sendExamToLuna"> LUNA Prediction </button>
+                        <p>{{info}}</p>
+                    <!-- </form> -->
 
 
 
@@ -79,6 +79,7 @@
 
     </div>
     
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src='js/main.js'></script> 
     <script type="module" src='js/modules/dashboard.mjs'></script>
     <script>
@@ -89,21 +90,6 @@
         } );
     </script>
 
-    <script>
-        function diagnosis(){
-            $.ajax({
-                url:"",
-                method:"POST",
-                success: function (response) {
-                    console.log(response);
-                },
-                error: function (err) {
-                    reject(err);
-                }
-            });
-        }
-        
-    </script>
              
 </body>
 </html>
