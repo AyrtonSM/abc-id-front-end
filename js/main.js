@@ -21,7 +21,7 @@ var app = new Vue({
     },
     methods:{
       sendExamToLuna : () => {
-      
+        console.log('requesting...');
         axios.get('http://127.0.0.1:5000/prediction',{
           params : {
              "radius_mean": document.getElementById("radius_mean").value,
@@ -55,9 +55,12 @@ var app = new Vue({
              "symmetry_worst":document.getElementById("symmetry_worst").value,
              "fractal_dimension_worst":document.getElementById("fractal_dimension_worst").value
           }
-        }).then(response => (this.info = response));
-        
+        }).then(response => {
+        this.info = response
         console.log(this.info);
+        });
+        
+
       },  
     }
   });

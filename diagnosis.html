@@ -52,13 +52,14 @@
                     
                    
                     <div class="form-row">
-                          <div class="form-group col-md-4" v-for="label in breastCancerLabels">
+                          <div class="form-group col-md-2" v-for="label in breastCancerLabels">
+                              <label v-bind:for="label" >{{label}}</label>
                             <input type="text" class="form-control" v-bind:name="label" v-bind:id="label" v-bind:placeholder="label" value="1">
                           </div>
                          </div>
 
                            
-                        <button class="btn btn-primary btn-block" v-on:click="sendExamToLuna"> LUNA Prediction </button>
+                        <button class="btn btn-primary" v-on:click="sendExamToLuna"> LUNA Prediction </button>
                         <p>{{info}}</p>
                     <!-- </form> -->
 
@@ -81,7 +82,7 @@
     
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src='js/main.js'></script> 
-    <script type="module" src='js/modules/dashboard.mjs'></script>
+<!--    <script type="module" src='js/modules/dashboard.mjs'></script>-->
     <script>
         
 
