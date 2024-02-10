@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from tensorflow.keras.models import model_from_json
 import threading
+import os
 
 from repository.core.ai.Luna import Luna
 
@@ -10,7 +11,7 @@ class LunaRepository:
 
     def __init__(self):
         self.luna = Luna()
-        self._BASEPATH = 'C:/xampp2/htdocs/ACI/server/repository/core/data'
+        self._BASEPATH = f'{os.getcwd()}/server/repository/core/data'
         self.arquivo = open(f'{self._BASEPATH}/classifier_breast_json.json', 'r')
         self.classifier = None
 
