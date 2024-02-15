@@ -8,6 +8,6 @@ she'll predict whether the person has a breast cancer.
 
 How to run: 
 
-`$ docker build -t breast-cancer-identifier-v2 .` 
+`$ docker build -t breast-cancer-api-front-end .` 
 
-`$ docker run -d -p 5000:5000 breast-cancer-identifier-v2`
+`$ docker run --name breast-cancer-api-front-end -d -p 8000:80 breast-cancer-api-front-end`
