@@ -23,7 +23,7 @@ var app = new Vue({
     methods:{
       sendExamToLuna : () => {
         console.log('requesting...');
-        axios.get('http://127.0.0.1:5000/prediction',{
+        axios.get('http://ec2-50-17-85-136.compute-1.amazonaws.com:5000/prediction',{
           params : {
              "radius_mean": document.getElementById("radius_mean").value,
              "texture_mean": document.getElementById("texture_mean").value,
