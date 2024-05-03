@@ -6,6 +6,9 @@
 This is just view part, backend will be resposible for sending the details of the image to LUNA and based on that information
 she'll predict whether the person has a breast cancer.
 
+Use backend project as well to be able to use the model 
+https://github.com/AyrtonSM/abc-id-front-end
+
 How to run: 
 
 `$ docker build -t breast-cancer-api-front-end .` 
