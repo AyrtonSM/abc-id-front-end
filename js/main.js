@@ -22,42 +22,47 @@ var app = new Vue({
     },
     methods:{
       sendExamToLuna : () => {
-        console.log('requesting...');
-        axios.post('http://ec2-50-17-85-136.compute-1.amazonaws.com:5000/prediction',{
-          params : {
-             "radius_mean": document.getElementById("radius_mean").value,
-             "texture_mean": document.getElementById("texture_mean").value,
-             "perimeter_mean":document.getElementById("perimeter_mean").value,
-             "area_mean":document.getElementById("area_mean").value,
-             "smoothness_mean":document.getElementById("smoothness_mean").value,
-             "compactness_mean":document.getElementById("compactness_mean").value,
-             "concavity_mean":document.getElementById("concavity_mean").value,
-             "concave_points_mean":document.getElementById("concave_points_mean").value,
-             "symmetry_mean":document.getElementById("symmetry_mean").value,
-             "fractal_dimension_mean": document.getElementById("fractal_dimension_mean").value,
-             "radius_se" :document.getElementById("radius_se").value,
-             "texture_se":  document.getElementById("texture_se").value,
-             "perimeter_se":document.getElementById("perimeter_se").value,
-             "area_se":document.getElementById("area_se").value,
-             "smoothness_se":document.getElementById("smoothness_se").value,
-             "compactness_se":document.getElementById("compactness_se").value,
-             "concavity_se":document.getElementById("concavity_se").value,
-             "concave_points_se":document.getElementById("concave_points_se").value,
-             "symmetry_se":document.getElementById("symmetry_se").value,
-             "fractal_dimension_se":document.getElementById("fractal_dimension_se").value,
-             "radius_worst":document.getElementById("radius_worst").value,
-             "texture_worst":document.getElementById("texture_worst").value,
-             "perimeter_worst":document.getElementById("perimeter_worst").value,
-             "area_worst":document.getElementById("area_worst").value,
-             "smoothness_worst":document.getElementById("smoothness_worst").value,
-             "compactness_worst":document.getElementById("compactness_worst").value,
-             "concavity_worst":document.getElementById("concavity_worst").value,
-             "concave_points_worst":document.getElementById("concave_points_worst").value,
-             "symmetry_worst":document.getElementById("symmetry_worst").value,
-             "fractal_dimension_worst":document.getElementById("fractal_dimension_worst").value
-          }
-        }).then(response => {
+
+        var data = {
+          "radius_mean": parseFloat(document.getElementById("radius_mean").value),
+          "texture_mean": parseFloat(document.getElementById("texture_mean").value),
+          "perimeter_mean": parseFloat(document.getElementById("perimeter_mean").value),
+          "area_mean": parseFloat(document.getElementById("area_mean").value),
+          "smoothness_mean": parseFloat(document.getElementById("smoothness_mean").value),
+          "compactness_mean": parseFloat(document.getElementById("compactness_mean").value),
+          "concavity_mean": parseFloat(document.getElementById("concavity_mean").value),
+          "concave_points_mean": parseFloat(document.getElementById("concave_points_mean").value),
+          "symmetry_mean": parseFloat(document.getElementById("symmetry_mean").value),
+          "fractal_dimension_mean": parseFloat(document.getElementById("fractal_dimension_mean").value),
+          "radius_se" : parseFloat(document.getElementById("radius_se").value),
+          "texture_se":  parseFloat(document.getElementById("texture_se").value),
+          "perimeter_se": parseFloat(document.getElementById("perimeter_se").value),
+          "area_se": parseFloat(document.getElementById("area_se").value),
+          "smoothness_se": parseFloat(document.getElementById("smoothness_se").value),
+          "compactness_se": parseFloat(document.getElementById("compactness_se").value),
+          "concavity_se": parseFloat(document.getElementById("concavity_se").value),
+          "concave_points_se": parseFloat(document.getElementById("concave_points_se").value),
+          "symmetry_se": parseFloat(document.getElementById("symmetry_se").value),
+          "fractal_dimension_se": parseFloat(document.getElementById("fractal_dimension_se").value),
+          "radius_worst": parseFloat(document.getElementById("radius_worst").value),
+          "texture_worst": parseFloat(document.getElementById("texture_worst").value),
+          "perimeter_worst": parseFloat(document.getElementById("perimeter_worst").value),
+          "area_worst": parseFloat(document.getElementById("area_worst").value),
+          "smoothness_worst": parseFloat(document.getElementById("smoothness_worst").value),
+          "compactness_worst": parseFloat(document.getElementById("compactness_worst").value),
+          "concavity_worst": parseFloat(document.getElementById("concavity_worst").value),
+          "concave_points_worst": parseFloat(document.getElementById("concave_points_worst").value),
+          "symmetry_worst": parseFloat(document.getElementById("symmetry_worst").value),
+          "fractal_dimension_worst":parseFloat(document.getElementById("fractal_dimension_worst").value)
+     }
+
+        // console.log(data);
+        axios.post('http://ec2-50-17-85-136.compute-1.amazonaws.com:5000/prediction', data).then(response => {
+          // axios.post('http://127.0.0.1:5000/prediction', data).then(response => {
+            console.log(response.data)
+         
           document.getElementById('result').innerHTML = response.data.message;
+          alert(response.data.message)
         });
 
       },  
