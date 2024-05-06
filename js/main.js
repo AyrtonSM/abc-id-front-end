@@ -57,7 +57,7 @@ var app = new Vue({
      }
 
         // console.log(data);
-        axios.post('http://ec2-50-17-85-136.compute-1.amazonaws.com:5000/prediction', data).then(response => {
+        axios.post('http://ec2-3-88-41-163.compute-1.amazonaws.com:5000/prediction', data).then(response => {
           // axios.post('http://127.0.0.1:5000/prediction', data).then(response => {
             console.log(response.data)
          
